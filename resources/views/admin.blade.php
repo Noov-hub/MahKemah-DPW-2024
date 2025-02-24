@@ -144,7 +144,4 @@
     @else
         <script>window.location = "/admin-verification";</script>
 @endif
-<html>
-    ngoding ngoding git
-</html>
 @endsection
