@@ -57,7 +57,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    @if (Route::has('login'))
+                        @auth
+                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                        @else
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        @endauth
+                @endif
                 </div>
             </div>
             <div>
