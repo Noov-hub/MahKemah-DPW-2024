@@ -4,5 +4,5 @@ Sebuah Projek membangun website peminjaman alat perkemahan untuk memenuhi tugas 
 
 
 ```
-untuk database menggunakan mySQL, execute file SQL di dalam folder database/mahkemah.sql
+untuk database menggunakan mySQL, buat dulu db dengan nama mahkemah lalu isi dengan execute file SQL di dalam folder database/mahkemah.sql
 ```
