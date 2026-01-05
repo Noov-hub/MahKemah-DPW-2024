@@ -28,4 +28,31 @@ class RegistrationTest extends TestCase
         $this->assertAuthenticated();
         $response->assertRedirect(route('dashboard', absolute: false));
     }
+
+    public function test_registration_fails_if_name_is_empty(): void
+    {
+        // Mencoba register tanpa nama
+        $response = $this->post('/register', [
+            'name' => '', // Kosong
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        // Memastikan ada error di session pada key 'name'
+        $response->assertSessionHasErrors('name');
+    }
+
+    public function test_registration_fails_if_email_is_invalid(): void
+    {
+        // Mencoba register dengan format email salah
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'bukan-email', // Format salah
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+    }
 }
