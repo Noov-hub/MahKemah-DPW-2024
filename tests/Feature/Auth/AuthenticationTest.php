@@ -52,3 +52,17 @@ class AuthenticationTest extends TestCase
         $response->assertRedirect('/');
     }
 }
+
+class GuestAccessTest extends TestCase
+{
+    public function test_guest_cannot_access_dashboard()
+    {
+        // User belum login mencoba akses /dashboard
+        $response = $this->get('/dashboard');
+
+        // Harusnya di-redirect ke halaman login
+        $response->assertRedirect('/login');
+    }
+}
+
+
